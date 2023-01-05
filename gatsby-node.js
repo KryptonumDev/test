@@ -6,14 +6,10 @@ exports.createPages = async ({
     graphql,
     actions: { createPage },
 }) => {
-    const { data: { wpPage: { homepage } } } = await graphql(`
+    const { data: { wpPage } } = await graphql(`
                 query {
                     wpPage(homepage: {heroHome: {title: {ne: null}}}) {
-                    homepage {
-                        heroHome {
-                        title
-                        }
-                    }
+                        id
                     }
                 }
           `);
@@ -22,5 +18,6 @@ exports.createPages = async ({
         path: '/',
         component: resolve('src/templates/homepage.js'),
         context: {},
+        ownerNodeId: wpPage.id,
     });
 }
