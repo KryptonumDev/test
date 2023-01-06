@@ -2,10 +2,13 @@ import { graphql } from "gatsby"
 import * as React from "react"
 
 const IndexPage = ({ data: { wpPage } }) => {
+    if (!wpPage) {
+        return null
+    }
     return (
         <main>
             {wpPage.content}
-            <br/>
+            <br />
             {wpPage.homepage.heroHome.title}
         </main>
     )
