@@ -2,6 +2,7 @@ import { graphql } from "gatsby"
 import * as React from "react"
 
 const IndexPage = ({ data: { wpPage } }) => {
+  debugger
     return (
         <main>
             {wpPage.content}
@@ -10,8 +11,8 @@ const IndexPage = ({ data: { wpPage } }) => {
 }
 
 export const query = graphql`
-  query MyQuery {
-    wpPage {
+  query MyQuery($id: String!) {
+    wpPage (id: {eq: $id}){
         content
     }
   }
