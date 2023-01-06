@@ -5,21 +5,14 @@ const IndexPage = ({ data: { wpPage } }) => {
     return (
         <main>
             {wpPage.content}
-            <br />
-            {wpPage.homepage.heroHome.title}
         </main>
     )
 }
 
 export const query = graphql`
   query MyQuery {
-    wpPage(homepage: {heroHome: {title: {ne: null}}}) {
+    wpPage {
         content
-      homepage {
-        heroHome {
-          title
-        }
-      }
     }
   }
 `

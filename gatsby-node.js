@@ -10,7 +10,7 @@ exports.createPages = async ({
     createPage({
         path: '/',
         component: resolve('src/templates/homepage.js'),
-        context: {},
+        context: {}, 
         ownerNodeId: 123456,
     });
 }
